@@ -19,4 +19,10 @@ export class UsersService {
     const createdUser = await this.usersRepository.create(newUser);
     return createdUser;
   }
+
+  async addManyToChat(users: string[], chatId: string) {
+    for (const u of users) {
+      await this.usersRepository.addUserToChat(u, chatId);
+    }
+  }
 }

@@ -14,10 +14,14 @@ export class User {
   @Prop({ required: true })
   chats: string[];
 
+  @Prop({ required: true })
+  createdAt: Date;
+
   constructor(username: string) {
     this._id = crypto.randomUUID(); //for easy work (without ObjectId)
     this.username = username;
     this.chats = [];
+    this.createdAt = new Date();
   }
 }
 

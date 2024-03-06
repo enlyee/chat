@@ -11,7 +11,15 @@ export class UsersQueryRepository {
     const user = await this.userModel.findOne({
       username: username,
     });
-    if (!user) return false;
+    if (!user) return null;
     return user.username;
+  }
+
+  async getById(id: string) {
+    const user = await this.userModel.findOne({
+      _id: id,
+    });
+    if (!user) return null;
+    return user;
   }
 }

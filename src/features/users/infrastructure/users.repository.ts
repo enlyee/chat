@@ -13,4 +13,11 @@ export class UsersRepository {
     const created: UserDocument = await this.userModel.create(user);
     return UsersOutputModelMapper(created);
   }
+
+  async addUserToChat(userId: string, chatId: string) {
+    await this.userModel.updateOne(
+      { _id: userId },
+      { $push: { chats: chatId } },
+    );
+  }
 }

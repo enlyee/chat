@@ -2,7 +2,6 @@ import { UserDocument } from '../../../domain/user.entity';
 
 export class UsersOutputModel {
   id: string;
-  username: string;
 }
 
 export const UsersOutputModelMapper = (
@@ -10,6 +9,5 @@ export const UsersOutputModelMapper = (
 ): UsersOutputModel => {
   const newUser = new UsersOutputModel();
   newUser.id = user._id;
-  newUser.username = user.username;
   return newUser;
 };
